@@ -90,7 +90,7 @@ $ kubectl apply -f deploy_nginx.yml
 
 ### Create Service (same as TP3)
 svc_nginx.yml
-```
+```yaml
 kind: Service
 apiVersion: v1
 metadata:
@@ -156,7 +156,7 @@ $ kubectl rollout undo deploy/nginx --to-revision=1
 ## Canary deployment upgrade
 ### Copy deployment manifests and change replicas to 1
 deploy_nginx_canary.yml
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -220,7 +220,7 @@ $ kubectl delete deploy/nginx
 ## Blue/Green deployment upgrade
 ### Create Blue and Green version of deployment
 deploy_nginx_blue.yml
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 retadata:
@@ -261,7 +261,7 @@ spec:
 ```
 
 deploy_nginx_green.yml
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -308,7 +308,7 @@ $ kubectl apply -f deploy_nginx_green.yml
 
 ### Create service targeting app: nginx_blue
 svc_nginx.yml
-```
+```yaml
 kind: Service
 apiVersion: v1
 metadata:
