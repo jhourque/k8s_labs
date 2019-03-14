@@ -78,7 +78,7 @@ Or
 $ docker rm -f nginx
 ```
 
-###List images
+### List images
 ```
 $ docker images
 ```
@@ -88,7 +88,7 @@ $ docker images
 $ docker rmi nginx
 ```
 
-### Question ?
+### Question?
 A new version of the web site is available:
 - How do you update your website container without rebuild your container? 
 - How would you Manage scaling?
@@ -132,4 +132,4 @@ $ docker exec -it bb2 ifconfig
 ```
 
 ### Question?
-- What do you observe ?
+- What do you observe?
