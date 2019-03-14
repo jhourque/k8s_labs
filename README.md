@@ -1,10 +1,10 @@
 # Kubernetes Labs
 
 ## Day 1
-###TP0: Docker
-###TP1: Minikube
-###TP2: Pods
-###TP3: Services
+### TP0: Docker
+### TP1: Minikube
+### TP2: Pods
+### TP3: Services
 
 ## Day 2
 ### TP4: Deployments
