@@ -44,7 +44,7 @@ Login to VM with
 
 ### Create deployment with 2 nginx pod
 deploy_nginx.yml
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
