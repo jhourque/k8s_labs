@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-nginx
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx_blue
+  ports:
+  - protocol: TCP
+    port: 80

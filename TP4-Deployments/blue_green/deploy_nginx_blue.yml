@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html-blue
+data:
+  index.html: |
+      Nginx V1.14.0
+
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-blue
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx_blue
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.0
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          readOnly: true
+          name: index-html
+      volumes:
+      - name: index-html
+        configMap:
+          name: index-html-blue
+          items:
+            - key: index.html
+              path: index.html
