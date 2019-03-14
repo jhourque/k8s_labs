@@ -2,7 +2,7 @@
 
 ## Day 1
 ### TP0: Docker
-### TP1: Minikube
+### TP1: Kubeadm
 ### TP2: Pods
 ### TP3: Services
 
