@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: ubuntu
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu
+      command: ["sleep"]
+      args: ["3600"]
+
+      volumeMounts:
+      - mountPath: "/local"
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: local-claim
