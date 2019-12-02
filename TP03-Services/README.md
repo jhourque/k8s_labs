@@ -43,9 +43,7 @@ Login to VM with
 
 ### Reuse pod_nginx2.yml from TP2
 pod_nginx2.yml
-```
 [!INCLUDE[pod_nginx2.yml](pod_nginx2.yml)]
-```
 ```
 apiVersion: v1
 kind: ConfigMap
