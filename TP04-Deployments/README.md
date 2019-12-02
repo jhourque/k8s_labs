@@ -26,8 +26,8 @@ Vagrant.configure("2") do |config|
     cp -i /etc/kubernetes/admin.conf ~vagrant/.kube/config
     chown vagrant:vagrant ~vagrant/.kube/config
     su vagrant -c "kubectl taint node ubuntu-bionic node-role.kubernetes.io/master:NoSchedule-"
-    su vagrant -c "kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml"
-    su vagrant -c "kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml"
+    su vagrant -c "kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml"
+
   SHELL
 end
 ```
@@ -54,11 +54,14 @@ data:
       Nginx V1.14.0
 
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
 spec:
+  selector:
+    matchLabels:
+      app: nginx
   replicas: 2
   template:
     metadata:
@@ -166,12 +169,15 @@ data:
       Nginx V1.15.0
 
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx2
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
@@ -230,12 +236,15 @@ data:
       Nginx V1.14.0
 
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-blue
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
@@ -271,12 +280,15 @@ data:
       Nginx V1.15.0
 
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-green
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
@@ -326,7 +338,7 @@ spec:
 ```
 $ kubectl apply -f svc_nginx.yml
 $ kubectl get svc
-$ cyyurl ...
+$ curl ...
 ```
 
 ### Update svc target to app: nginx_green
