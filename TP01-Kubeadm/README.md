@@ -69,7 +69,7 @@ $ kubectl get pod --all-namespaces
 
 ### Install flannel CNI (cf: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
 ```
-$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
+$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
 ### Check pod running in all namespaces
@@ -95,6 +95,5 @@ $ kubectl taint node ubuntu-bionic node-role.kubernetes.io/master:NoSchedule-
 
 ### Install callico CNI (cf: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
 ```
-$ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
-$ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+$ kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml
 ```
