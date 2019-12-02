@@ -26,8 +26,7 @@ Vagrant.configure("2") do |config|
     cp -i /etc/kubernetes/admin.conf ~vagrant/.kube/config
     chown vagrant:vagrant ~vagrant/.kube/config
     su vagrant -c "kubectl taint node ubuntu-bionic node-role.kubernetes.io/master:NoSchedule-"
-    su vagrant -c "kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml"
-    su vagrant -c "kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml"
+    su vagrant -c "kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml"
   SHELL
 end
 ```
@@ -100,7 +99,7 @@ spec:
 
 ### Apply it
 ```
-$ kubectl apply -f job.yml
+$ kubectl apply -f cronjob.yml
 ```
 
 ### Watch execution
