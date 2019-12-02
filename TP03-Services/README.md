@@ -43,7 +43,6 @@ Login to VM with
 
 ### Reuse pod_nginx2.yml from TP2
 pod_nginx2.yml
-<<[pod_nginx2.yml]
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -95,14 +94,10 @@ spec:
     port: 80
 ```
 
-```
-$ kubectl apply -f pod_nginx.yml
-```
-
 ### Apply pods and service manifests
 ```
-$ kubectl apply pod_nginx2.yml
-$ kubectl apply svc_nginx.yml
+$ kubectl apply -f pod_nginx2.yml
+$ kubectl apply -f svc_nginx.yml
 ```
 
 ### List Services
