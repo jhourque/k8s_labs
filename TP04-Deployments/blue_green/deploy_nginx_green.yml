@@ -15,7 +15,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-green
   template:
     metadata:
       labels:
