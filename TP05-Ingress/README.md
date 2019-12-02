@@ -10,28 +10,16 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/ma
 [deploy_nginx.yml](deploy_nginx.yml)
 [deploy_nginx2.yml](deploy_nginx2.yml)
 
+```
+$ kubectl apply -f deploy_nginx.yml
+$ kubectl apply -f deploy_nginx2.yml
+```
+
 ### Create Ingress
-ingress.yml
-```yaml
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: ingress-nginx
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - host: k8straining.com
-    http:
-      paths:
-      - path: /foo
-        backend:
-          serviceName: svc-nginx
-          servicePort: 80
-      - path: /bar
-        backend:
-          serviceName: svc-nginx2
-          servicePort: 80
+[ingress.yml](ingress.yml)
+
+```
+$ kubectl apply -f ingress.yml
 ```
 
 ### Wait for ingress address
