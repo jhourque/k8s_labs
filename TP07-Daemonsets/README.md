@@ -51,30 +51,7 @@ $ kubectl get ds -n kube-system
 tips: add spec: "hostNetwork: true" & "hostPID: true" to access /proc/meminfo
 >>>
 
-daemonset.yml
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: proc-daemon
-spec:
-  template:
-    metadata:
-      labels:
-        name: proc-daemon
-    spec:
-      hostNetwork: true
-      hostPID: true
-      containers:
-        - name: busybox
-          image: busybox
-          args:
-            - /bin/sh
-            - -c
-            - while true; do grep MemFree /proc/meminfo; sleep 10; done
-          securityContext:
-            privileged: true
-```
+[daemonset.yml](daemonset.yml)
 
 ### Apply it
 ```
