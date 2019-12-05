@@ -5,7 +5,7 @@
 ### Setup master
 Add cloud provider option in kubelet
 ```
-master$ sudo sed -i 's/KUBELET_EXTRA_ARGS.*/KUBELET_EXTRA_ARGS=--cloud-provider=aws/' /etc/default/kubelet
+master$ sudo echo 'KUBELET_EXTRA_ARGS=--cloud-provider=aws' | sudo tee /etc/default/kubelet
 ```
 
 Start kubeadm init and force node name
@@ -43,8 +43,7 @@ $ sudo chown ubuntu:ubuntu ~ubuntu/.kube/config
 
 ### Install callico CNI (cf: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
 ```
-master$ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
-master$ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+master$ kubectl apply -f https://docs.projectcalico.org/v3.10/manifests/calico.yaml
 ```
 
 ### List nodes
@@ -60,7 +59,7 @@ master$ sudo kubeadm token create --print-join-command
 ### Setup node (on each node)
 Add cloud provider option in kubelet
 ```
-nodeX$ sudo sed -i 's/KUBELET_EXTRA_ARGS.*/KUBELET_EXTRA_ARGS=--cloud-provider=aws/' /etc/default/kubelet
+nodeX$ sudo echo 'KUBELET_EXTRA_ARGS=--cloud-provider=aws' | sudo tee /etc/default/kubelet
 ```
 
 Start kubeadm join command and force node name to hostname
