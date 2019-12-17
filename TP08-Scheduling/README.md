@@ -42,8 +42,9 @@ spec:
         - containerPort: 80
 ```
 
-### Check pods placement
+### Apply and check pods placement
 ```
+$ kubectl apply -f deploy_nginx.yml
 $ kubectl get po -o wide
 ```
 
