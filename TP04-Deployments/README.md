@@ -244,7 +244,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nginx_blue
   template:
     metadata:
       labels:
@@ -288,7 +288,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nginx_green
   template:
     metadata:
       labels:
