@@ -2,6 +2,13 @@
 
 ## Use AWS Kubernetes Cluster for this lab
 
+### Label each node with node1 and node2
+```
+$ kubectl get nodes
+$ kubectl label nodes <node name 1> nodename=node1
+$ kubectl label nodes <node name 2> nodename=node2
+```
+
 ### Create PV with StorageClass Local
 sc-local.yml
 ```yaml
