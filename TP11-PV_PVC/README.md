@@ -113,6 +113,7 @@ parameters:
   type: io1
   iopsPerGB: "10"
   fsType: ext4
+volumeBindingMode: WaitForFirstConsumer
 ```
 
 ### Create PVC 
