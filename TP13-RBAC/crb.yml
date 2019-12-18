@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tp1-view-bind
+subjects:
+- kind: Group
+  name: goldpinger
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: tp1-view
+  apiGroup: rbac.authorization.k8s.io
+
